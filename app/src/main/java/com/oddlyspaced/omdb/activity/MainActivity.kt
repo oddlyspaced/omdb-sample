@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         client.searchMovies("Avengers").enqueue(object : Callback<SearchResultWrapper> {
             override fun onResponse(call: Call<SearchResultWrapper>, response: Response<SearchResultWrapper>) {
                 response.body()?.let {
-                    binding.rvSearchResult.isVisible = true
+                    binding.consSearchResult.isVisible = true
                     binding.consWaitingSearch.isVisible = false
                     results.addAll(it.searchResults)
 //                    adapter.notifyDataSetChanged()
