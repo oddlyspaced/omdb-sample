@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OMDB">
         <activity
+            android:name=".activity.MovieDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
