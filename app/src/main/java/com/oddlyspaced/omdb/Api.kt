@@ -6,11 +6,11 @@ import retrofit2.http.Query
 
 interface Api {
 
-    @GET
+    @GET(" ")
     fun searchMovies(
-        @Query("apikey") apiKey: String = Global.API_KEY,
         @Query("s") searchQuery: String,
-        @Query("page") pageNumber: Int,
+        @Query("page") pageNumber: Int = 1,
+        @Query("apikey") apiKey: String = Global.API_KEY,
     ): Call<SearchResultWrapper>
 
 }
