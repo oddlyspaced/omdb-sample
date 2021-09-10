@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class SearchResultWrapper(
     @SerializedName("Search")
-    val searchResults: List<SearchResult>
+    val searchResults: List<SearchResult>?
 )
