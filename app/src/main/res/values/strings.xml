@@ -2,4 +2,5 @@
     <string name="app_name">OMDB</string>
     <string name="app_title">Awesome Movie Search</string>
     <string name="search_hint">Enter your search query…</string>
+    <string name="ready_search">Ready to Search!</string>
 </resources>
