@@ -1,6 +1,7 @@
-package com.oddlyspaced.omdb
+package com.oddlyspaced.omdb.api
 
 import com.google.gson.GsonBuilder
+import com.oddlyspaced.omdb.Global
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

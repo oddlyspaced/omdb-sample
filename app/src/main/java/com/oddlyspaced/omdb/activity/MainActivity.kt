@@ -1,8 +1,11 @@
-package com.oddlyspaced.omdb
+package com.oddlyspaced.omdb.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.oddlyspaced.omdb.R
+import com.oddlyspaced.omdb.api.ApiClient
+import com.oddlyspaced.omdb.modal.SearchResultWrapper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

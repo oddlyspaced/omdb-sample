@@ -1,4 +1,4 @@
-package com.oddlyspaced.omdb
+package com.oddlyspaced.omdb.modal
 
 import com.google.gson.annotations.SerializedName
 
