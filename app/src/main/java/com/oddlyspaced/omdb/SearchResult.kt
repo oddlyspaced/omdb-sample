@@ -1,9 +1,16 @@
 package com.oddlyspaced.omdb
 
+import com.google.gson.annotations.SerializedName
+
 data class SearchResult(
+    @SerializedName("Title")
     val title: String,
-    val year: Int,
+    @SerializedName("Year")
+    val year: String,
+    @SerializedName("imdbID")
     val imdbId: String,
+    @SerializedName("Type")
     val type: SearchResultTypes,
+    @SerializedName("Poster")
     val posterLink: String,
 )
