@@ -2,6 +2,7 @@ package com.oddlyspaced.omdb.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private var currentPage = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,21 +37,27 @@ class MainActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(applicationContext, 2)
         }
 
-        client.searchMovies("Avengers").enqueue(object : Callback<SearchResultWrapper> {
+        binding.fabSearch.setOnClickListener {
+            currentPage += 1
+            loadResults("Avengers", currentPage)
+        }
+    }
+
+    private fun loadResults(query: String, page: Int) {
+        client.searchMovies(query, page).enqueue(object : Callback<SearchResultWrapper> {
             override fun onResponse(call: Call<SearchResultWrapper>, response: Response<SearchResultWrapper>) {
                 response.body()?.let {
                     binding.consSearchResult.isVisible = true
                     binding.consWaitingSearch.isVisible = false
                     results.addAll(it.searchResults)
-//                    adapter.notifyDataSetChanged()
                     adapter.notifyItemRangeInserted(results.size - it.searchResults.size, it.searchResults.size)
                 }
             }
 
             override fun onFailure(call: Call<SearchResultWrapper>, t: Throwable) {
                 t.printStackTrace()
+                Toast.makeText(applicationContext, "Page End Reached!", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 }
