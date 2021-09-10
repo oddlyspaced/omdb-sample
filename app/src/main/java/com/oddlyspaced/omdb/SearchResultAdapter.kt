@@ -7,11 +7,12 @@ import com.bumptech.glide.Glide
 import com.oddlyspaced.omdb.databinding.ItemMovieResultBinding
 import com.oddlyspaced.omdb.modal.SearchResult
 
-class SearchResultAdapter(val results: ArrayList<SearchResult>) : RecyclerView.Adapter<SearchResultAdapter.SearchResultViewHolder>() {
+class SearchResultAdapter(private val results: ArrayList<SearchResult>) : RecyclerView.Adapter<SearchResultAdapter.SearchResultViewHolder>() {
 
     inner class SearchResultViewHolder(private val binding: ItemMovieResultBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: SearchResult) {
             Glide.with(binding.root).load(data.posterLink).into(binding.imgResult)
+            binding.txResult.text = data.title
         }
     }
 
