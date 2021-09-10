@@ -1,4 +1,4 @@
-package com.oddlyspaced.omdb
+package com.oddlyspaced.omdb.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

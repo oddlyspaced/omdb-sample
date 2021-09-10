@@ -1,13 +1,11 @@
 package com.oddlyspaced.omdb.activity
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
-import com.oddlyspaced.omdb.R
-import com.oddlyspaced.omdb.SearchResultAdapter
+import com.oddlyspaced.omdb.adapter.SearchResultAdapter
 import com.oddlyspaced.omdb.api.ApiClient
 import com.oddlyspaced.omdb.databinding.ActivityMainBinding
 import com.oddlyspaced.omdb.modal.SearchResult
