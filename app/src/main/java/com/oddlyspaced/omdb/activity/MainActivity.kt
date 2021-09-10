@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private var currentPage = 0
+    private var currentQuery = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +39,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.fabSearch.setOnClickListener {
+            val query = binding.etQuery.text.toString()
+            if (currentQuery != query) {
+                currentPage = 0
+                val count = results.size
+                results.clear()
+                adapter.notifyItemRangeRemoved(0, count)
+            }
+            if (query.isEmpty()) {
+                Toast.makeText(applicationContext, "Please type a query!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            currentQuery = query
             currentPage += 1
-            loadResults("Avengers", currentPage)
+            loadResults(query, currentPage)
         }
     }
 
@@ -47,10 +60,15 @@ class MainActivity : AppCompatActivity() {
         client.searchMovies(query, page).enqueue(object : Callback<SearchResultWrapper> {
             override fun onResponse(call: Call<SearchResultWrapper>, response: Response<SearchResultWrapper>) {
                 response.body()?.let {
-                    binding.consSearchResult.isVisible = true
-                    binding.consWaitingSearch.isVisible = false
-                    results.addAll(it.searchResults)
-                    adapter.notifyItemRangeInserted(results.size - it.searchResults.size, it.searchResults.size)
+                    if (it.searchResults == null) {
+                        Toast.makeText(applicationContext, "No results for $query", Toast.LENGTH_LONG).show()
+                    }
+                    else {
+                        binding.consSearchResult.isVisible = true
+                        binding.consWaitingSearch.isVisible = false
+                        results.addAll(it.searchResults)
+                        adapter.notifyItemRangeInserted(results.size - it.searchResults.size, it.searchResults.size)
+                    }
                 }
             }
 
