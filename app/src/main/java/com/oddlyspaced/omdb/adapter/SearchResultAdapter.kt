@@ -1,10 +1,13 @@
 package com.oddlyspaced.omdb.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.oddlyspaced.omdb.activity.MovieDetailActivity
 import com.oddlyspaced.omdb.databinding.ItemMovieResultBinding
+import com.oddlyspaced.omdb.modal.MovieDetails
 import com.oddlyspaced.omdb.modal.SearchResult
 
 class SearchResultAdapter(private val results: ArrayList<SearchResult>) : RecyclerView.Adapter<SearchResultAdapter.SearchResultViewHolder>() {
@@ -13,6 +16,17 @@ class SearchResultAdapter(private val results: ArrayList<SearchResult>) : Recycl
         fun bind(data: SearchResult) {
             Glide.with(binding.root).load(data.posterLink).into(binding.imgResult)
             binding.txResult.text = data.title
+            binding.root.setOnClickListener {
+                val ctx = binding.root.context
+                ctx.startActivity(
+                    Intent(
+                        ctx,
+                        MovieDetailActivity::class.java
+                    ).apply {
+                        putExtra("imdb_id", data.imdbId)
+                    }
+                )
+            }
         }
     }
 
