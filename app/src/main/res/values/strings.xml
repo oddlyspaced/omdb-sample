@@ -4,4 +4,11 @@
     <string name="search_hint">Enter your search query…</string>
     <string name="ready_search">Ready to Search!</string>
     <string name="next">Next</string>
+    <string name="released">Released</string>
+    <string name="rated">Rated</string>
+    <string name="genre">Genre</string>
+    <string name="rating">Rating</string>
+    <string name="director">Director</string>
+    <string name="actors">Actors</string>
+    <string name="plot">Plot</string>
 </resources>
