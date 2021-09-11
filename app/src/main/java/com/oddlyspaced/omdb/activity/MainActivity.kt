@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import com.oddlyspaced.omdb.R
 import com.oddlyspaced.omdb.adapter.SearchResultAdapter
 import com.oddlyspaced.omdb.api.ApiClient
 import com.oddlyspaced.omdb.databinding.ActivityMainBinding
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             }
             // Check for empty query
             if (query.isEmpty()) {
-                Toast.makeText(applicationContext, "Please type a query!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, getString(R.string.please_type_query), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             // Load results with the query
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 response.body()?.let { body -> // body not null
                     if (body.searchResults == null) {
                         // search results null, so no results loaded
-                        Toast.makeText(applicationContext, "No results for $query", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, getString(R.string.no_result, query), Toast.LENGTH_LONG).show()
                     }
                     else {
                         // search results present, showcase them
@@ -96,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             // Api call failed
             override fun onFailure(call: Call<SearchResultWrapper>, t: Throwable) {
                 t.printStackTrace()
-                Toast.makeText(applicationContext, "Page End Reached!", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, getString(R.string.page_end), Toast.LENGTH_LONG).show()
             }
         })
     }

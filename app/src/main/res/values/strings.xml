@@ -11,4 +11,7 @@
     <string name="director">Director</string>
     <string name="actors">Actors</string>
     <string name="plot">Plot</string>
+    <string name="please_type_query">Please type a query!</string>
+    <string name="no_result">No results for %s</string>
+    <string name="page_end">Page End Reached!</string>
 </resources>
