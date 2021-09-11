@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.oddlyspaced.omdb.activity.MovieDetailActivity
 import com.oddlyspaced.omdb.databinding.ItemMovieResultBinding
-import com.oddlyspaced.omdb.modal.MovieDetails
 import com.oddlyspaced.omdb.modal.SearchResult
 
 class SearchResultAdapter(private val results: ArrayList<SearchResult>) : RecyclerView.Adapter<SearchResultAdapter.SearchResultViewHolder>() {

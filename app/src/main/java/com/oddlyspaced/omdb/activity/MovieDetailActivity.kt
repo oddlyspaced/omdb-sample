@@ -1,9 +1,8 @@
 package com.oddlyspaced.omdb.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.oddlyspaced.omdb.R
 import com.oddlyspaced.omdb.api.ApiClient
 import com.oddlyspaced.omdb.databinding.ActivityMovieDetailBinding
 import com.oddlyspaced.omdb.modal.MovieDetails
