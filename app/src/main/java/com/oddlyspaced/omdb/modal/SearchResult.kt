@@ -9,8 +9,6 @@ data class SearchResult(
     val year: String,
     @SerializedName("imdbID")
     val imdbId: String,
-    @SerializedName("Type")
-    val type: SearchResultTypes,
     @SerializedName("Poster")
     val posterLink: String,
 )

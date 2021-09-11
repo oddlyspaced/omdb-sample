@@ -8,6 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+// Standard reference Retrofit Client with Http Logging
 object ApiClient {
     fun getApiClient(): Api {
         val interceptor = HttpLoggingInterceptor().apply {
