@@ -26,7 +26,7 @@ class SearchResultAdapter(private val results: ArrayList<SearchResult>) : Recycl
                         MovieDetailActivity::class.java
                     ).apply {
                         // send imdb_id to activity
-                        putExtra("imdb_id", data.imdbId)
+                        putExtra(MovieDetailActivity.IMDB_ID, data.imdbId)
                     }
                 )
             }

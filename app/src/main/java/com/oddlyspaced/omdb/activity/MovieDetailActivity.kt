@@ -18,6 +18,10 @@ class MovieDetailActivity : AppCompatActivity() {
     // Binding variable for Movie Details Activity
     private lateinit var binding: ActivityMovieDetailBinding
 
+    companion object {
+        const val IMDB_ID = "imdb_id"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Load binding
@@ -25,7 +29,7 @@ class MovieDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Get imdb id from extras
-        val imdbID = intent?.extras?.getString("imdb_id") ?: ""
+        val imdbID = intent?.extras?.getString(IMDB_ID) ?: ""
 
         // check if imdb id is not empty
         if (imdbID.isNotEmpty()) {
